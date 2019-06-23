@@ -1,0 +1,26 @@
+parameters:
+  level: max
+  paths:
+    - src
+    - tests
+  autoload_files:
+    - %currentWorkingDirectory%/vendor/autoload.php
+    - %currentWorkingDirectory%/vendor/squizlabs/php_codesniffer/autoload.php
+    - %currentWorkingDirectory%/vendor/squizlabs/php_codesniffer/src/Util/Tokens.php
+  excludes_analyse:
+    - */tests/*/data/*
+  exceptionRules:
+    reportUnusedCatchesOfUncheckedExceptions: false
+    uncheckedExceptions: []
+  classesAllowedToBeExtended:
+    - UnexpectedValueException
+#  ignoreErrors:
+#    - '~Unused @throws ExceptionalJSON\\EncodeErrorException annotation~'
+
+includes:
+  - vendor/phpstan/phpstan-strict-rules/rules.neon
+  - vendor/phpstan/phpstan-phpunit/extension.neon
+  - vendor/phpstan/phpstan-phpunit/rules.neon
+  - vendor/pepakriz/phpstan-exception-rules/extension.neon
+  - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+  - vendor/localheinz/phpstan-rules/rules.neon
