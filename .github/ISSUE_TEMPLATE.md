@@ -1,6 +1,6 @@
 | Q                 | A
 | ------------------| ---------------
-| MacosBuild version | x.y.z
+| macos-build version | x.y.z
 | PHP version       | x.y.z
 
 
