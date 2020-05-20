@@ -18,9 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 final class MacosBuildTest extends TestCase
 {
-    /**
-     * @var MacosBuild
-     */
+    /** @var MacosBuild */
     private $object;
 
     /**

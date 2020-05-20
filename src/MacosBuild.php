@@ -30,7 +30,7 @@ final class MacosBuild implements MacosBuildInterface
         try {
             $version = OSXbuild::getVersion($needle);
             // @codeCoverageIgnoreStart
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             throw new BuildException('An error occured while detection the version', 0, $e);
             // @codeCoverageIgnoreEnd
         }
