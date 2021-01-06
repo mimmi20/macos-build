@@ -54,5 +54,8 @@ final class MacosBuildTest extends TestCase
     public function testGetVersion(): void
     {
         self::assertSame('10.14.3b1', $this->object->getVersion('18D21c'));
+        self::assertSame('11.2b1', $this->object->getVersion('20D5029'));
+        self::assertSame('11.0.1b1', $this->object->getVersion('20B5012'));
+        self::assertSame('11.0b8', $this->object->getVersion('20A5374'));
     }
 }
