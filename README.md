@@ -8,7 +8,6 @@ This class add a class wrapper around [peterkahl/apple-os-x-build-version](https
 
 ## Code Status
 
-[![Build Status](https://travis-ci.org/mimmi20/macos-build.svg?branch=master)](https://travis-ci.org/mimmi20/macos-build)
 [![codecov](https://codecov.io/gh/mimmi20/macos-build/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/macos-build)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mimmi20/macos-build.svg)](http://isitmaintained.com/project/mimmi20/macos-build "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mimmi20/macos-build.svg)](http://isitmaintained.com/project/mimmi20/macos-build "Percentage of issues still open")
