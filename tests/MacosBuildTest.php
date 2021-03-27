@@ -9,21 +9,20 @@
  */
 
 declare(strict_types = 1);
+
 namespace MacosBuildTest;
 
 use MacosBuild\BuildException;
 use MacosBuild\MacosBuild;
 use MacosBuild\NotFoundException;
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
 final class MacosBuildTest extends TestCase
 {
-    /** @var MacosBuild */
-    private $object;
+    private MacosBuild $object;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         $this->object = new MacosBuild();
@@ -32,8 +31,6 @@ final class MacosBuildTest extends TestCase
     /**
      * @throws NotFoundException
      * @throws BuildException
-     *
-     * @return void
      */
     public function testGetVersionFail(): void
     {
@@ -44,12 +41,10 @@ final class MacosBuildTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
      * @throws BuildException
      * @throws NotFoundException
-     *
-     * @return void
      */
     public function testGetVersion(): void
     {
