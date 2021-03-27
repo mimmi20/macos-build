@@ -9,7 +9,14 @@
  */
 
 declare(strict_types = 1);
+
 namespace MacosBuild;
+
+use function array_key_exists;
+use function array_keys;
+use function array_values;
+use function count;
+use function preg_match;
 
 final class MacosBuild implements MacosBuildInterface
 {
@@ -515,8 +522,6 @@ final class MacosBuild implements MacosBuildInterface
      *
      * @throws BuildException
      * @throws NotFoundException
-     *
-     * @return string
      */
     public function getVersion(string $needle): string
     {
