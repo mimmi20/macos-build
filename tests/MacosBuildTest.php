@@ -14,10 +14,15 @@ namespace MacosBuildTest;
 
 use MacosBuild\BuildException;
 use MacosBuild\MacosBuild;
+use MacosBuild\MacosData;
 use MacosBuild\NotFoundException;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
+
+use function is_numeric;
+use function mb_substr;
+use function sprintf;
 
 final class MacosBuildTest extends TestCase
 {
@@ -31,13 +36,41 @@ final class MacosBuildTest extends TestCase
     /**
      * @throws NotFoundException
      * @throws BuildException
+     *
+     * @dataProvider failVersionDataProvider
      */
-    public function testGetVersionFail(): void
+    public function testGetVersionFail(string $buildCode): void
     {
         $this->expectException(NotFoundException::class);
-        $this->expectExceptionMessage('Could not detect the version from the build');
+        $this->expectExceptionCode(0);
+        $this->expectExceptionMessage(
+            sprintf('Could not detect the version from the buildCode "%s"', $buildCode)
+        );
 
-        $this->object->getVersion('\'x\': \'123\'');
+        $this->object->getVersion($buildCode);
+    }
+
+    /**
+     * @return array<int, array<int, string>>
+     */
+    public function failVersionDataProvider(): array
+    {
+        $data = [
+            ['\'x\': \'123\''],
+            ['a20G5042c2'],
+            ['a20G5042c'],
+            ['20G5042c2'],
+        ];
+
+        foreach (MacosData::VERSIONS as $code => $version) {
+            if (is_numeric(mb_substr($code, -1))) {
+                continue;
+            }
+
+            $data[] = [$code . 'd', $version];
+        }
+
+        return $data;
     }
 
     /**
@@ -45,12 +78,60 @@ final class MacosBuildTest extends TestCase
      * @throws InvalidArgumentException
      * @throws BuildException
      * @throws NotFoundException
+     *
+     * @dataProvider versionDataProvider
      */
-    public function testGetVersion(): void
+    public function testGetVersion(string $buildCode, string $expected): void
     {
-        self::assertSame('10.14.3b1', $this->object->getVersion('18D21c'));
-        self::assertSame('11.2b1', $this->object->getVersion('20D5029'));
-        self::assertSame('11.0.1b1', $this->object->getVersion('20B5021'));
-        self::assertSame('11.0b8', $this->object->getVersion('20A5374'));
+        self::assertSame($expected, $this->object->getVersion($buildCode));
+    }
+
+    /**
+     * @return array<int, array<int, string>>
+     */
+    public function versionDataProvider(): array
+    {
+        $data = [
+            [
+                '18D21c',
+                '10.14.3b1',
+            ],
+            [
+                '20D5029',
+                '11.2b1',
+            ],
+            [
+                '20B5021',
+                '11.0.1b1',
+            ],
+            [
+                '20A5374',
+                '11.0b8',
+            ],
+            [
+                '20G5042',
+                '11.5b3',
+            ],
+            [
+                '20G5043',
+                '11.5b3',
+            ],
+            [
+                '20G5041',
+                '11.5b2',
+            ],
+        ];
+
+        foreach (MacosData::VERSIONS as $code => $version) {
+            $data[] = [$code, $version];
+
+            if (!is_numeric(mb_substr($code, -1))) {
+                continue;
+            }
+
+            $data[] = [$code . 'd', $version];
+        }
+
+        return $data;
     }
 }
