@@ -15,7 +15,7 @@ This class add a class wrapper around [peterkahl/apple-os-x-build-version](https
 
 ## Requirements
 
-This library requires PHP 7.1+.
+This library requires PHP 7.4+.
 
 ## Installation
 
@@ -28,11 +28,9 @@ composer require mimmi20/macos-build
 ## Usage
 
 ```php
-$json    = new \MacosBuild\Json();
-$decoded = $json->decode();
+$build   = new \MacosBuild\MacosBuild();
+$version = $build->getVersion($code);
 ```
-
-See also [peterkahl/apple-os-x-build-version's documentation](https://raw.githubusercontent.com/peterkahl/Apple-OS-X-build/master/readme.md)
 
 ## Issues and feature requests
 
