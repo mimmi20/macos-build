@@ -1,7 +1,5 @@
 # macos-build
 
-This class add a class wrapper around [peterkahl/apple-os-x-build-version](https://github.com/peterkahl/Apple-OS-X-build) to make mocking easier.
-
 [![Latest Stable Version](https://poser.pugx.org/mimmi20/macos-build/v/stable?format=flat-square)](https://packagist.org/packages/mimmi20/macos-build)
 [![Latest Unstable Version](https://poser.pugx.org/mimmi20/macos-build/v/unstable?format=flat-square)](https://packagist.org/packages/mimmi20/macos-build)
 [![License](https://poser.pugx.org/mimmi20/macos-build/license?format=flat-square)](https://packagist.org/packages/mimmi20/macos-build)

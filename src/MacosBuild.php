@@ -28,7 +28,6 @@ final class MacosBuild implements MacosBuildInterface
      *
      * @param string $buildCode the build code
      *
-     * @throws BuildException
      * @throws NotFoundException
      */
     public function getVersion(string $buildCode): string
