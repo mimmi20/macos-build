@@ -19,8 +19,6 @@ interface MacosBuildInterface
      *
      * @param string $buildCode the build code
      *
-     * @return string
-     *
      * @throws NotFoundException
      */
     public function getVersion(string $buildCode): string;
