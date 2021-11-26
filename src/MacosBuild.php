@@ -23,6 +23,10 @@ use function sprintf;
 
 final class MacosBuild implements MacosBuildInterface
 {
+    private const PRIMARY_CODE   = 'primaryCode';
+    private const SECONDARY_CODE = 'secondaryCode';
+    private const BUILD_CODE     = 'buildCode';
+
     /**
      * Takes OS X build code and returns corresponding OS X version.
      *
@@ -44,15 +48,15 @@ final class MacosBuild implements MacosBuildInterface
             foreach ($builds as $key => $build) {
                 preg_match('/(?P<primaryCode>\d+)(?P<secondaryCode>[A-Z])(?<buildCode>\d+)([a-z])?/', $build, $matchCode);
 
-                if ($matchCode['primaryCode'] . $matchCode['secondaryCode'] . $matchCode['buildCode'] === $matchNeedle['primaryCode'] . $matchNeedle['secondaryCode'] . $matchNeedle['buildCode']) {
+                if ($matchCode[self::PRIMARY_CODE] . $matchCode[self::SECONDARY_CODE] . $matchCode[self::BUILD_CODE] === $matchNeedle[self::PRIMARY_CODE] . $matchNeedle[self::SECONDARY_CODE] . $matchNeedle[self::BUILD_CODE]) {
                     return $versions[$key];
                 }
 
-                if ($matchCode['primaryCode'] . $matchCode['secondaryCode'] !== $matchNeedle['primaryCode'] . $matchNeedle['secondaryCode'] || $matchNeedle['buildCode'] <= $matchCode['buildCode']) {
+                if ($matchCode[self::PRIMARY_CODE] . $matchCode[self::SECONDARY_CODE] !== $matchNeedle[self::PRIMARY_CODE] . $matchNeedle[self::SECONDARY_CODE] || $matchNeedle[self::BUILD_CODE] <= $matchCode[self::BUILD_CODE]) {
                     continue;
                 }
 
-                $candidate[$matchCode['buildCode']] = $versions[$key];
+                $candidate[$matchCode[self::BUILD_CODE]] = $versions[$key];
             }
         }
 
