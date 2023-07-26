@@ -1,7 +1,7 @@
-| Q                 | A
-| ------------------| ---------------
-| macos-build version | x.y.z
-| PHP version       | x.y.z
+| Q                   | A              |
+|---------------------|----------------|
+| macos-build version | x.y.z          |
+| PHP version         | x.y.z          |
 
 
 <!--
