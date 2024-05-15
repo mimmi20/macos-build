@@ -10,7 +10,7 @@
 
 declare(strict_types = 1);
 
-namespace MacosBuild;
+namespace MacosBuild\Exception;
 
 use UnexpectedValueException;
 

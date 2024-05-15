@@ -12,9 +12,9 @@ declare(strict_types = 1);
 
 namespace MacosBuildTest;
 
+use MacosBuild\Exception\NotFoundException;
 use MacosBuild\MacosBuild;
 use MacosBuild\MacosData;
-use MacosBuild\NotFoundException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;

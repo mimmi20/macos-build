@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace MacosBuild;
 
+use MacosBuild\Exception\NotFoundException;
+
 interface MacosBuildInterface
 {
     /**
