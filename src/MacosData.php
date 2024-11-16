@@ -14,7 +14,7 @@ namespace MacosBuild;
 
 final class MacosData
 {
-    public const VERSIONS = [
+    public const array VERSIONS = [
         '4K78' => '10.0',
         '5G64' => '10.1',
         '6C115' => '10.2',

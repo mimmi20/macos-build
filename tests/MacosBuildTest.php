@@ -15,6 +15,7 @@ namespace MacosBuildTest;
 use MacosBuild\Exception\NotFoundException;
 use MacosBuild\MacosBuild;
 use MacosBuild\MacosData;
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
@@ -28,6 +29,7 @@ final class MacosBuildTest extends TestCase
     private MacosBuild $object;
 
     /** @throws void */
+    #[Override]
     protected function setUp(): void
     {
         $this->object = new MacosBuild();

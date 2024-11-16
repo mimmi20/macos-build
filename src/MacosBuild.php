@@ -13,6 +13,7 @@ declare(strict_types = 1);
 namespace MacosBuild;
 
 use MacosBuild\Exception\NotFoundException;
+use Override;
 
 use function array_key_exists;
 use function array_keys;
@@ -32,6 +33,7 @@ final class MacosBuild implements MacosBuildInterface
      *
      * @throws NotFoundException
      */
+    #[Override]
     public function getVersion(string $buildCode): string
     {
         if (array_key_exists($buildCode, MacosData::VERSIONS)) {
