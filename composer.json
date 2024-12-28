@@ -20,7 +20,8 @@
     "source": "https://github.com/mimmi20/macos-build"
   },
   "require": {
-    "php": "~8.3.0 || ~8.4.0 || ~8.5.0"
+    "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+    "ext-mbstring": "*"
   },
   "require-dev": {
     "ext-ctype": "*",
@@ -39,6 +40,7 @@
     "phpunit/phpunit": "^11.5.2",
     "rector/rector": "^1.2.10",
     "rector/type-perfect": "^1.0.0",
+    "shipmonk/composer-dependency-analyser": "^1.8.1",
     "symfony/process": "^7.2.0",
     "symplify/phpstan-rules": "^13.0.1",
     "tomasvotruba/cognitive-complexity": "^0.2.3",
