@@ -3,7 +3,7 @@
 /**
  * This file is part of the macos-build package.
  *
- * Copyright (c) 2019-2024, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2019-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,10 +11,12 @@
 
 declare(strict_types = 1);
 
-$header = <<<'EOF'
+$year = date('Y');
+
+$header = <<<EOF
     This file is part of the macos-build package.
 
-    Copyright (c) 2019-2024, Thomas Mueller <mimmi20@live.de>
+    Copyright (c) 2019-{$year}, Thomas Mueller <mimmi20@live.de>
 
     For the full copyright and license information, please view the LICENSE
     file that was distributed with this source code.
@@ -48,5 +50,5 @@ return $config
             ],
         ),
     )
-    ->setUsingCache(true)
+    ->setUsingCache(false)
     ->setFinder($finder);
