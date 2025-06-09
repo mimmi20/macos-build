@@ -21,6 +21,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 
+use function array_keys;
 use function is_numeric;
 use function mb_substr;
 use function sprintf;
@@ -63,7 +64,7 @@ final class MacosBuildTest extends TestCase
             ['20G5042c2'],
         ];
 
-        foreach (MacosData::VERSIONS as $code => $version) {
+        foreach (array_keys(MacosData::VERSIONS) as $code) {
             if (is_numeric(mb_substr($code, -1))) {
                 continue;
             }
