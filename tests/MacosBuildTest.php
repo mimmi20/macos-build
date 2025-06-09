@@ -69,7 +69,7 @@ final class MacosBuildTest extends TestCase
                 continue;
             }
 
-            $data[] = $code . 'd';
+            $data[] = [$code . 'd'];
         }
 
         return $data;
