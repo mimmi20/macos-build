@@ -38,12 +38,12 @@ final class MacosBuildTest extends TestCase
 
     /** @throws NotFoundException */
     #[DataProvider('failVersionDataProvider')]
-    public function testGetVersionFail(string $buildCode): void
+    public function testGetVersionFail(string $buildCode, string $expected = ''): void
     {
         $this->expectException(NotFoundException::class);
         $this->expectExceptionCode(0);
         $this->expectExceptionMessage(
-            sprintf('Could not detect the version from the buildCode "%s"', $buildCode),
+            sprintf('Could not detect the version %s from the buildCode "%s"', $expected, $buildCode),
         );
 
         $this->object->getVersion($buildCode);
