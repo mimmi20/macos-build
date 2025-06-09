@@ -109,7 +109,6 @@ parameters:
 
   ignoreErrors:
     - '~Offset .(primary|secondary|build)Code. might not exist on array~'
-    - '~Method MacosBuildTest\\MacosBuildTest::failVersionDataProvider\(\) should return non-empty-list<array<~'
 
 rules:
   # code complexity
