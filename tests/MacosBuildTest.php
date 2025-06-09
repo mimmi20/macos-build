@@ -51,7 +51,7 @@ final class MacosBuildTest extends TestCase
     }
 
     /**
-     * @return non-empty-list<array<int, string>>
+     * @return non-empty-list<array<string>>
      *
      * @throws void
      */
