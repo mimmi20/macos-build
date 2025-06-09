@@ -51,7 +51,7 @@ final class MacosBuildTest extends TestCase
     }
 
     /**
-     * @return array<int, array<int, string>>
+     * @return list<string>
      *
      * @throws void
      */
@@ -86,7 +86,7 @@ final class MacosBuildTest extends TestCase
     }
 
     /**
-     * @return array<int, array<int, string>>
+     * @return list<list<string>>
      *
      * @throws void
      */
